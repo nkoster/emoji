@@ -13,5 +13,6 @@ awk -F '>' '{
     alias=substr($2, index($2, "alias=\"")+7)
     alias=substr(alias, 0, index(alias,"\"")-1)
     printf("     .replace(\":%s:\", \"%s\")\n",alias, substr($3,0,index($3, "<")-1))
-}'
+}' | \
+sort -u
 ```
